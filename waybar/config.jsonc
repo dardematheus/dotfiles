@@ -1,0 +1,95 @@
+{
+    "layer": "top",
+    "position": "top",
+    "mode": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 0,
+    "margin-left": 16,
+    "margin-right": 16,
+    "margin-bottom": -6,
+    "margin-top": 10,
+    "modules-left": [
+        "clock",
+        "tray"
+    ],
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+    "modules-right": [
+        //"pulseaudio",
+        //"pulseaudio#microphone",
+    	"backlight",
+	    "battery"
+    ],
+
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        //"format": "{icon}",
+        "persistent-workspaces": {
+            "1": [],
+            "2": [],
+            "3": [],
+            "4": [],
+            "5": []
+        }
+    },
+    "clock": {
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "<small>{calendar}</small>",
+        "format-alt": "{:%Y-%m-%d}"
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "pipewire-pulse": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": "",
+        "on-click": "pavucontrol -t",
+        "on-scroll-up": "pavucontrol -i 5",
+        "on-scroll-down": "pavucontrol -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": " ",
+            "hands-free": " ",
+            "headset": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "pipewire-pulse#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " ",
+        "on-click": "pavucontrol --default-source -t",
+        "on-scroll-up": "pavucontrol --default-source -i 5",
+        "on-scroll-down": "pavucontrol --default-source -d 5",
+        "scroll-step": 5
+    },
+    "backlight": {
+	"on-click": "brightnessctl s +10%",
+	"on-click-right": "brightnessctl s 10%-", 
+	"tooltip": false,
+    "format": "{percent}% {icon}",
+	"format-icons": ["󰃞", "󰃟", "󰃠"]
+    },
+    "battery": {
+    	"bat": "BAT0",
+    	"interval": 60,
+    	"states": {
+	        "warning": 30,
+	        "critical": 15
+	    },
+	"format": "{capacity}% {icon}",
+	"format-icons": ["\uf244", "\uf243", "\uf242", "\uf241", "\uf240"],
+	"max-length": 25
+    }
+}
